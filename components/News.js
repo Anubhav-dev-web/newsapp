@@ -40,16 +40,19 @@ export class News extends Component {
 
 
     async updateNews() {
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1b3967d3074b43c891d8ab01d6009bfa&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.props.setProgress(10);
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url); // using async function and await
-
+        this.props.setProgress(30);
         let parseddata = await data.json();
+        this.props.setProgress(70);
         this.setState({
             articles: parseddata.articles,
             totalResults: parseddata.totalResults,
             loading: false
         });
+        this.props.setProgress(100);
     }
 
     // componentDidMount runs after the return statement that is when component output has
@@ -57,7 +60,7 @@ export class News extends Component {
 
     async componentDidMount() {
 
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1b3967d3074b43c891d8ab01d6009bfa&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);      // using async function and await
         // fetching data from API using {fetch}
@@ -76,7 +79,7 @@ export class News extends Component {
     fetchMoreData = async () => {
         this.setState({ page: this.state.page + 1 })
 
-        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=1b3967d3074b43c891d8ab01d6009bfa&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
         let data = await fetch(url); // using async function and await
 
