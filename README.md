@@ -13,9 +13,9 @@
 ## Installation
 
 ```
-git clone https://github.com/your-username/news-app.git
+git clone https://github.com/Anubhav-dev-web/newsapp.git)
 
-cd news-app
+cd newsapp
 
 npm install
 
