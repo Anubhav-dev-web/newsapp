@@ -55,5 +55,6 @@ http://localhost:3000
 ```
 
 ## Preview 
+![Screenshot 2024-03-09 122640](https://github.com/Anubhav-dev-web/newsapp/assets/80172002/b0cdd972-ab72-4ba7-ad09-26af8d75aa12)
 
-![alt text](image.png)
+
